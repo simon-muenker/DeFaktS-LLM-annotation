@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "{{package_name}}"
+version = "0.1.0"
+description = ""
+license = "Apache-2.0"
+authors = ["Simon Münker <simon.muenker@googlemail.de>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytest = "^8.3.3"
+
+[tool.poetry.group.dev.dependencies]
+pydantic = "^2.9.2"
+ruff = "^0.6.8"
+mypy = "^1.11.2"
+
+
+[tool.ruff]
+line-length = 96
+
+[tool.ruff.lint]
+select = ["I", "N", "UP", "A", "PL"]
+
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "DEBUG"
+testpaths = [
+    "tests",
+]
+
+
+[tool.mypy]
+files = "cltrier_nlp"
+disable_error_code = "import-untyped"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
